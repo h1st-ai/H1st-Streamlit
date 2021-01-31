@@ -12,7 +12,7 @@ class MyWorkflow(H1stWorkflow):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-        # create Workflow structure if all attributes have been initialized 
+        # create Workflow structure if all attributes have been initialized
         if hasattr(self, 'first_step'):
             self.start() \
                 .add(self.first_step)
