@@ -1,1 +1,1 @@
-# Human-First AI integration with Streamlit
+# Human-First AI Application Templates
