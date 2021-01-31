@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     # Query Profiling
     'silk',   # REQUIRED by H1st Django; do NOT remove
 
-    # H1st Django Modules
+    # H1st Django Modules: REQUIRED, do NOT remove
     'h1st.django.data',
     'h1st.django.model',
     'h1st.django.trust',
@@ -58,7 +58,9 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware'
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    'silk.middleware.SilkyMiddleware'
 ]
 
 ROOT_URLCONF = 'urls'
