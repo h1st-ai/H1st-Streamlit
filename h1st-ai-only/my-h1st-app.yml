@@ -1,0 +1,6 @@
+db:
+  host: ~
+  engine: sqlite3
+  user: ~
+  password: ~
+  name: ./db.sqlite3
