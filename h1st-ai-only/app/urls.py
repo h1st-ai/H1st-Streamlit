@@ -11,5 +11,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     # H1st URLs
-    path('h1st/', include('h1st.django.urls'))
+    path('h1st/', include('h1st.django.urls')),
+
+    # Query Profiling URLs: REQUIRED by H1st Django, do NOT remove
+    path('silk/', include('silk.urls', namespace='silk'))
 ]
