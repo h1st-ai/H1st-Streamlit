@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # Query Profiling
+    'silk',   # REQUIRED by H1st Django; do NOT remove
+
     # H1st Django Modules
     'h1st.django.data',
     'h1st.django.model',
