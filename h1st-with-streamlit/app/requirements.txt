@@ -1,0 +1,4 @@
+https://GitHub.com/H1st-AI/H1st/archive/dev.zip
+https://GitHub.com/H1st-AI/H1st-Django/archive/main.zip
+
+Streamlit
