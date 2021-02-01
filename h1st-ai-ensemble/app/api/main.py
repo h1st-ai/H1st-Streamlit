@@ -17,15 +17,15 @@ import shutil
 from starlette.datastructures import FormData
 import sqlalchemy
 
-from app.ai.workflow import ClassifierEnsembleWorkflow
-from app.api.db import database, prediction_feedback, PredictionFeedback
+from app.ai.workflow import DefaultClassifierEnsembleWorkflow
+from app.api.db import InputData, OutputData
 from app.api.utils import preprocess_drawn_image
 
 
 app = FastAPI()
 
 # Load pre-trained classifier ensemble workflow
-cls_ensemble_workflow = ClassifierEnsembleWorkflow()
+default_classifier_ensemble_workflow = DefaultClassifierEnsembleWorkflow()
 
 @app.on_event("startup")
 async def startup():
@@ -35,19 +35,12 @@ async def startup():
 async def shutdown():
     await database.disconnect()
 
-@app.post('/predict')
-def predict_number(input_data: List):
-    
+@app.post('/predict', response_model=List[OutputData])
+def predict_number(input_data: List[InputData]):
     # Predict number
-    results = cls_ensemble_workflow.predict({'X': np.array(input_data)})["classification"][0]
+    results = default_classifier_ensemble_workflow.predict({'X': np.array(input_data)})["classification"][0]
 
-    return {"prediction": int(results)}
-
-@app.get('/predictions', response_model=List[PredictionFeedback])
-async def get_predictions():
-    query = prediction_feedback.select()
-    result = await database.fetch_all(query=query)
-    return result
+    return {"prediction": bool(results)}
 
 
 # @app.get('/retrain')
