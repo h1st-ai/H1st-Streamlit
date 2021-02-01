@@ -1,1 +1,1 @@
-../../h1st-ai-only/app/settings.py
+../../h1st-ai-base/app/settings.py

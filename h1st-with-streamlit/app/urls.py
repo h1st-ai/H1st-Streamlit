@@ -1,1 +1,1 @@
-../../h1st-ai-only/app/urls.py
+../../h1st-ai-base/app/urls.py
