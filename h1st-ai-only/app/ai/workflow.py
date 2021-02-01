@@ -1,4 +1,4 @@
-from h1st.django.model.api import H1stWorkflow, H1stModel
+from h1st.django.api import H1stWorkflow, H1stModel
 
 from django.db.models import ForeignKey, PROTECT
 
