@@ -38,3 +38,8 @@ class FaultPredictionWorkflow(H1stWorkflow):
                 )
 
             self.end()
+
+    def __str__(self):
+        return f'{type(self).__name__} #{self.uuid}: ' \
+               f'Anomaly Detector = {self.anomaly_detector}; ' \
+               f'Fault Classifier = {self.fault_classifier}'
