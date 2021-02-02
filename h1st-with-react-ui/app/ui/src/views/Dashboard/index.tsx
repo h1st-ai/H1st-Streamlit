@@ -3,7 +3,7 @@ import axios from "axios";
 import { useState } from "react";
 import { Layout } from "../Layout";
 
-const backendUrl = process.env.AI_WORKFLOW_URL ?? "http://localhost:8000";
+const backendUrl = process.env.REACT_APP_AI_WORKFLOW_URL ?? "http://localhost:8000";
 
 const Dashboard = () => {
   const [content, setContent] = useState("");
@@ -13,8 +13,8 @@ const Dashboard = () => {
     try {
       const res = await axios.post(`${backendUrl}`, JSON.parse(content), {
         auth: {
-          username: process.env.USERNAME ?? "",
-          password: process.env.PASSWORD ?? "",
+          username: process.env.REACT_APP_AI_USERNAME ?? "",
+          password: process.env.REACT_APP_AI_PASSWORD ?? "",
         },
         headers: {
           "Content-Type": "application/json",
