@@ -2,15 +2,18 @@ from h1st.django.api import H1stWorkflow
 from h1st.core.node import Action
 
 
-class Multiply10x(Action):
+class Multiply(Action):
+    def __init__(self, n_times):
+        self.n_times = n_times
+
     def call(self, command, data: dict) -> dict:
-        return {k: 10 * v for k, v in data.items()}
+        return {k: self.n * v for k, v in data.items()}
 
 
-class My10xWorkflow(H1stWorkflow):
+class MyWorkflow(H1stWorkflow):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
         self.start()
-        self.add(Multiply10x())
+        self.add(Multiply(10))
         self.end()
