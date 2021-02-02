@@ -8,7 +8,7 @@ class Multiply(Action):
         self.n_times = n_times
 
     def call(self, command, data: dict) -> dict:
-        return {k: self.n * v for k, v in data.items()}
+        return {k: self.n_times * v for k, v in data.items()}
 
 
 class MyWorkflow(H1stWorkflow):
