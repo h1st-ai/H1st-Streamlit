@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 
-from h1st.django.util.config import config_app
+from h1st.django.api import config_app
 config_app('app', 'my-h1st-app-config.yml')
 
 from ai.workflow import MyWorkflow
