@@ -35,3 +35,4 @@ def predict_number(input_data: List[InputData]):
     results = default_classifier_ensemble_workflow.predict({'X': np.array(input_list)})["predictions"]
     
     return [{"next_month_default": bool(result)} for result in results]
+

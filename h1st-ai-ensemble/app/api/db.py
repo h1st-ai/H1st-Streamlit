@@ -29,3 +29,4 @@ class InputData(BaseModel):
 
 class OutputData(BaseModel):
     next_month_default: bool
+

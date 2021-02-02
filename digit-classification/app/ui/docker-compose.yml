@@ -1,0 +1,11 @@
+version: "3"
+services:
+  furuno-app:
+    container_name: furuno-app
+    restart: always
+    build:
+      context: .
+    ports:
+      - "5000:80"
+    expose:
+      - "5000"
