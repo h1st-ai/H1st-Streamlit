@@ -11,7 +11,15 @@ const Dashboard = () => {
 
   const handleOnSendData = async () => {
     try {
-      const res = await axios.post(`${backendUrl}/predict`, content);
+      const res = await axios.post(`${backendUrl}`, JSON.parse(content), {
+        auth: {
+          username: process.env.REACT_APP_BASIC_AUTH_USERNAME ?? "",
+          password: process.env.REACT_APP_BASIC_AUTH_PASSWORD ?? "",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
       setResult(res.data);
     } catch (error) {}
   };
@@ -35,7 +43,7 @@ const Dashboard = () => {
                 </Row>
               </Col>
               <Col span={24}>Result:</Col>
-              <Col span={24}>{result}</Col>
+              <Col span={24}>{JSON.stringify(result)}</Col>
             </Row>
           </Card>
         </Col>
