@@ -1,0 +1,6 @@
+aiofiles==0.6.0
+aiosqlite==0.16.1
+databases==0.4.1
+opencv-python==4.5.1.48
+python-multipart==0.0.5
+tensorflow-datasets==4.2.0
