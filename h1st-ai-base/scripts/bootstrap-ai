@@ -4,7 +4,7 @@
 scripts/make-migrations
 scripts/migrate
 
-scripts/init-workflow-instance
+scripts/init-ai-workflow-instance
 
 cd app
 DJANGO_SUPERUSER_PASSWORD=password \
