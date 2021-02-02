@@ -4,6 +4,7 @@ from h1st.core.node import Action
 
 class Multiply(Action):
     def __init__(self, n_times):
+        super().__init__()
         self.n_times = n_times
 
     def call(self, command, data: dict) -> dict:
