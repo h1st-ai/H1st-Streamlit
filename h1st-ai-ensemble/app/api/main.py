@@ -19,33 +19,19 @@ import sqlalchemy
 
 from app.ai.workflow import DefaultClassifierEnsembleWorkflow
 from app.api.db import InputData, OutputData
-from app.api.utils import preprocess_drawn_image
 
-
+# Create a backend app
 app = FastAPI()
 
 # Load pre-trained classifier ensemble workflow
 default_classifier_ensemble_workflow = DefaultClassifierEnsembleWorkflow()
 
-@app.on_event("startup")
-async def startup():
-    await database.connect()
-
-@app.on_event("shutdown")
-async def shutdown():
-    await database.disconnect()
-
 @app.post('/predict', response_model=List[OutputData])
 def predict_number(input_data: List[InputData]):
     # Predict number
-    results = default_classifier_ensemble_workflow.predict({'X': np.array(input_data)})["classification"][0]
-
-    return {"prediction": bool(results)}
-
-
-# @app.get('/retrain')
-# async def retrain_model():    
-#     1. query db to get (prediction, correct_number, filename)
-#     2. load image and change it into numpy array
-#     3. re-train model (takes 2~3 minutes) how to handle this ?
-
+    input_list = []    
+    for data in input_data:
+        input_list.append([val for val in data.dict().values()])
+    results = default_classifier_ensemble_workflow.predict({'X': np.array(input_list)})["predictions"]
+    
+    return [{"next_month_default": bool(result)} for result in results]

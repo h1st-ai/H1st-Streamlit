@@ -2,7 +2,6 @@ from pydantic import BaseModel
 
 
 class InputData(BaseModel):
-    id: int
     limit_bal: int
     sex: int
     education: int

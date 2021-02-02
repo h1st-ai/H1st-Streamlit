@@ -4,7 +4,7 @@ from app.ai.tensorflow_mlp_classifier import TensorflowMLPClassifier
 from app.ai.classifier_ensemble import RFClassifierStackEnsemble
 
 
-class ClassifierEnsembleWorkflow(h1.Graph):
+class DefaultClassifierEnsembleWorkflow(h1.Graph):
     def __init__(self):
         super().__init__()
 
