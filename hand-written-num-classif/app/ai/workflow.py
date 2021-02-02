@@ -1,5 +1,5 @@
 import h1st.core as h1
-from app.ai.cnn_model import CNNNumberClassifier
+from app.ai.models.cnn_model import CNNNumberClassifier
 
 
 class ImageClsWorkflow(h1.Graph):
