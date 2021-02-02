@@ -55,13 +55,13 @@ const Dashboard = () => {
   }, []);
   return (
     <Layout>
-      <Row gutter={[16, 16]}>
+      <Row gutter={[16, 16]} justify="center">
         {/* Drawing panel */}
         <Col span={8}>
           <DrawCanvas getPredictions={getPredictions} />
         </Col>
         {/* Prediction tables */}
-        <Col span={16}>
+        <Col span={8}>
           <PredictionTable predictions={predictions} />
         </Col>
       </Row>
