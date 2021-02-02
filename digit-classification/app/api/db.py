@@ -25,8 +25,6 @@ class PredictionFeedback(BaseModel):
     id: int
     filename: str
     prediction: int
-    feedback: bool
-    correct_number: Optional[int]
 
 # class H1stPydantic(h1.Model, BaseModel):
 

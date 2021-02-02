@@ -14,7 +14,7 @@ from fastapi.middleware.cors import CORSMiddleware
 import numpy as np
 import shutil
 from starlette.datastructures import FormData
-import sqlalchemy
+import copy
 
 from app.ai.workflow import DigitClassificationWorkflow
 from app.api.db import database, prediction_feedback, PredictionFeedback
@@ -43,12 +43,29 @@ async def shutdown():
     await database.disconnect()
 
 @app.post('/predict_digit')
-def predict_digit(file: UploadFile = File(default=None)):
-    # Get a drawn image
-    input_img = preprocess_drawn_image(file, (28,28))
-    
-    # Predict number
-    results = digit_cls_workflow.predict({'X': input_img})["classification"][0]
+async def predict_digit(file: UploadFile = File(default=None)):
+    file_path = os.path.join('api', 'img_files', file.filename)
+    file_content = (file.file.read())
+    with open(file_path, "wb+") as file_object:
+        file_object.write(file_content)
+        file_object.close()
+
+
+    with open(file_path, "r") as file_object:
+        # Get a drawn image
+        input_img = preprocess_drawn_image(file_object, (28,28))
+        
+        # Predict number
+        results = digit_cls_workflow.predict({'X': input_img})["classification"][0]
+
+
+    # Save feedback in database
+    query = prediction_feedback.insert().values(
+        filename = file.filename,
+        prediction = int(results),
+    )
+
+    await database.execute(query)
     
     return {"prediction": int(results)}
 
