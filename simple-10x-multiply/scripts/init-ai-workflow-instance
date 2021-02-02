@@ -7,4 +7,4 @@ config_app('app', 'my-h1st-app-config.yml')
 from ai.workflow import My10xWorkflow
 
 
-print(My10xWorkflow.create())
+print(My10xWorkflow.objects.create())

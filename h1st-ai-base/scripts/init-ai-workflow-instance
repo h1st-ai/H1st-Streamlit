@@ -7,9 +7,6 @@ config_app('app', 'my-h1st-app-config.yml')
 from ai.workflow import MyWorkflow
 from ai.models.my_model import MyModel
 
-# create a model instance
-model = MyModel.objects.create()
 
-# create a workflow instance
-workflow = MyWorkflow.objects.get_or_create(first_step=model)[0]
-print(workflow)
+print(MyWorkflow.objects.get_or_create(
+        first_step=MyModel.objects.create())[0])
