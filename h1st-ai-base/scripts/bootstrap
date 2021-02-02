@@ -4,4 +4,6 @@
 scripts/make-migrations
 scripts/migrate
 
+scripts/init-workflow-instance
+
 scripts/create-super-user
