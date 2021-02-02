@@ -38,9 +38,6 @@ function dataURLtoFile(dataurl: string, filename: string) {
 
 const DrawCanvas = (props: any) => {
   const [predictedNumber, setPredictedNumber] = useState(null);
-  const [resizedFile, setResizedFile] = useState<File | null>();
-  const [showRightInput, setShowRightInput] = useState<boolean>(false);
-  const [rightNumber, setRightNumber] = useState();
   const canvasRef = useRef();
   const handleOnChange = (canvas: any) => {
     if (!canvasRef.current) {
@@ -59,59 +56,13 @@ const DrawCanvas = (props: any) => {
       const formData = new FormData();
       formData.append("file", resizedFile);
 
-      setResizedFile(resizedFile);
-
       const res = await axios.post(
-        `${process.env.REACT_APP_BACKEND_URL}/predict_number`,
+        `${process.env.REACT_APP_BACKEND_URL}/predict_digit`,
         formData
       );
 
       setPredictedNumber(res?.data?.prediction);
-    }
-  };
-
-  const requestFeedback = async (formData: any) => {
-    try {
-      await axios.post(
-        `${process.env.REACT_APP_BACKEND_URL}/feedback`,
-        formData
-      );
-
-      notification.success({
-        message: "Feedback sent sucessfully",
-      });
-
-      setPredictedNumber(null);
-      setResizedFile(null);
-      (canvasRef.current as any)?.clear?.();
       props?.getPredictions();
-      setShowRightInput(false);
-      setRightNumber(undefined);
-    } catch {}
-  };
-
-  const sendFeedback = (feedback: boolean) => async () => {
-    if (resizedFile && (predictedNumber || predictedNumber === 0)) {
-      const formData = new FormData();
-      formData.append("file", resizedFile);
-      formData.append("prediction", predictedNumber as any);
-      formData.append("feedback", feedback as any);
-      requestFeedback(formData as any);
-    }
-  };
-
-  const handleIncorrect = () => {
-    setShowRightInput(true);
-  };
-
-  const submitIncorrect = () => {
-    if (resizedFile && (predictedNumber || predictedNumber === 0)) {
-      const formData = new FormData();
-      formData.append("file", resizedFile);
-      formData.append("prediction", predictedNumber as any);
-      formData.append("feedback", "false");
-      formData.append("correct_number", rightNumber as any);
-      requestFeedback(formData as any);
     }
   };
 
@@ -158,34 +109,6 @@ const DrawCanvas = (props: any) => {
           <Col span={24} style={{ fontSize: 24 }}>
             Prediction number:
             <span style={{ fontSize: 28 }}>{predictedNumber}</span>
-          </Col>
-          <Col span={24}>
-            <Row justify="center" align="middle" style={{ width: "100%" }}>
-              <Button.Group>
-                <Button type="primary" onClick={sendFeedback(true)}>
-                  Correct
-                </Button>
-                <Button type="default" onClick={handleIncorrect}>
-                  Incorrect
-                </Button>
-              </Button.Group>
-            </Row>
-            {showRightInput && (
-              <div>
-                <Row justify="center" style={{ marginTop: 24, fontSize: 16 }}>
-                  <Col span={24}>Please input the correct number:</Col>
-                  <Col span={12}>
-                    <Input
-                      type="number"
-                      onChange={(e) => setRightNumber(e.target.value as any)}
-                    />
-                  </Col>
-                </Row>
-                <Row justify="center" style={{ marginTop: 12 }}>
-                  <Button onClick={() => submitIncorrect()}>Submit</Button>
-                </Row>
-              </div>
-            )}
           </Col>
         </Row>
       )}

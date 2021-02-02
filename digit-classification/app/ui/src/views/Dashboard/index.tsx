@@ -31,77 +31,10 @@ const PredictionTable = (props: any) => {
             dataIndex: "prediction",
             align: "center",
           },
-          {
-            title: "Correct number",
-            dataIndex: "correct_number",
-            align: "center",
-          },
-          {
-            title: "Feedback",
-            dataIndex: "feedback",
-            render: (feedback) => (
-              <Tag color={feedback ? "blue" : "orange"}>
-                {feedback ? "Correct" : "Incorrect"}
-              </Tag>
-            ),
-          },
         ]}
         dataSource={props?.predictions}
         rowKey="id"
       ></Table>
-    </Card>
-  );
-};
-
-const getSampleObj = () =>
-  Array(10)
-    .fill(0)
-    .reduce((obj, _, i) => {
-      obj[i] = {
-        total: 0,
-        correct: 0,
-        rate: 0,
-      };
-
-      return obj;
-    }, {});
-
-const PredictionChart = (props: any) => {
-  const data = useMemo(() => {
-    const aggregated = props?.predictions?.reduce(
-      (obj: any, predictionItem: any) => {
-        const { prediction, feedback } = predictionItem;
-        if (!obj[prediction]) {
-          obj[prediction] = {
-            total: 0,
-            correct: 0,
-            rate: 0,
-          };
-        }
-
-        obj[prediction].total += 1;
-        if (feedback) obj[prediction].correct += 1;
-
-        obj[prediction].rate =
-          (obj[prediction].correct / obj[prediction].total) * 100;
-
-        return obj;
-      },
-      getSampleObj()
-    );
-
-    return Object.keys(aggregated).map((key) => ({
-      ...aggregated[key],
-      title: key,
-    }));
-  }, [props?.predictions]);
-
-  console.log("analysis data", {
-    data,
-  });
-  return (
-    <Card title="Prediction analysis">
-      <PredictionAnalysis data={data} />
     </Card>
   );
 };
@@ -130,10 +63,6 @@ const Dashboard = () => {
         {/* Prediction tables */}
         <Col span={16}>
           <PredictionTable predictions={predictions} />
-        </Col>
-        {/* Graph visualization */}
-        <Col span={24}>
-          <PredictionChart predictions={predictions} />
         </Col>
       </Row>
     </Layout>
