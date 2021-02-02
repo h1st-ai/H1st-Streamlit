@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+
+cd app
+
+h1st makemigrations ../my-h1st-app-config.yml
