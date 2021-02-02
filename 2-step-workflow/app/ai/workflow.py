@@ -8,13 +8,15 @@ class MyWorkflow(H1stWorkflow):
         ForeignKey(
             verbose_name='Step 1',
             to=H1stModel,
-            on_delete=PROTECT)
+            on_delete=PROTECT,
+            related_name='multistep_workflow_step1')
 
     step2 = \
         ForeignKey(
             verbose_name='Step 2',
             to=H1stModel,
-            on_delete=PROTECT)
+            on_delete=PROTECT,
+            related_name='multistep_workflow_step2')
 
     class Meta:
         verbose_name = '2-Step Workflow'
