@@ -32,7 +32,7 @@ const Dashboard = () => {
         style={{ width: "100%", height: "100%" }}
       >
         <Col xs={22} md={16} lg={10}>
-          <Card title="Prediction App">
+          <Card title="H1st AI App with React UI">
             <Row gutter={[24, 24]}>
               <Col span={24}>
                 <Input.TextArea onChange={(e) => setContent(e.target.value)} />
