@@ -3,9 +3,9 @@ import numpy as np
 import cv2
 
 
-def preprocess_drawn_image(file: UploadFile, shape: tuple=(28, 28)):
+def preprocess_drawn_image(file, shape: tuple=(28, 28)):
     # Load image
-    npimg = np.fromfile(file.file, np.uint8)
+    npimg = np.fromfile(file, np.uint8)
     img = cv2.imdecode(npimg, cv2.IMREAD_GRAYSCALE)
 
     # Resize image
