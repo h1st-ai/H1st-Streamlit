@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+
+cd app
+
+h1st runserver ../my-h1st-app-config.yml
