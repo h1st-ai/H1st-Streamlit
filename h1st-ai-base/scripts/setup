@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+
+scripts/make-migrations
+scripts/migrate
+
+scripts/create-super-user
