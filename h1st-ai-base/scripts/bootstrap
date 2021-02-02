@@ -6,4 +6,7 @@ scripts/migrate
 
 scripts/init-workflow-instance
 
-scripts/create-super-user
+cd app
+DJANGO_SUPERUSER_PASSWORD=password \
+    h1st createsuperuser ../my-h1st-app-config.yml \
+    --no-input --username username --email user@h1st.ai
