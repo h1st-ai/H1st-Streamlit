@@ -14,7 +14,6 @@ from fastapi.middleware.cors import CORSMiddleware
 import numpy as np
 import shutil
 from starlette.datastructures import FormData
-import copy
 
 from app.ai.workflow import DigitClassificationWorkflow
 from app.api.db import database, prediction_feedback, PredictionFeedback
