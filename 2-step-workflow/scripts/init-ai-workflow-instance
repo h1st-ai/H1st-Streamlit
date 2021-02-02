@@ -5,8 +5,10 @@ from h1st.django.util.config import config_app
 config_app('app', 'my-h1st-app-config.yml')
 
 from ai.workflow import MyWorkflow
-from ai.models.my_model import MyModel
+from ai.models.step1_models import MyStep1Model
+from ai.models.step2_models import MyStep2Model
 
 
 print(MyWorkflow.objects.create(
-        first_step=MyModel.objects.create()))
+        step1=MyStep1Model.objects.create(),
+        step2=MyStep2Model.objects.create()))

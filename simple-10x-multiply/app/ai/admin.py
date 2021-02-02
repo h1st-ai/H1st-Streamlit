@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .workflow import My10xWorkflow
+from .workflow import MyWorkflow
 
 
-admin.site.register([My10xWorkflow])
+admin.site.register([MyWorkflow])

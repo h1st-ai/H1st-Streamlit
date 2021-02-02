@@ -1,11 +1,11 @@
 from django.contrib import admin
 
-from .workflow import ObjectDetectionAndClassificationWorkflow
-from .models.object_detectors.my_object_detector import MyObjectDetector
-from .models.object_classifiers.my_object_classifier import MyObjectClassifier
+from .workflow import MyWorkflow
+from .models.step1_models.my_step1_model import MyStep1Model
+from .models.step2_models.my_step2_model import MyStep2Model
 
 
 admin.site.register([
-    ObjectDetectionAndClassificationWorkflow,
-    MyObjectDetector, MyObjectClassifier
+    MyWorkflow,
+    MyStep1Model, MyStep2Model
 ])
