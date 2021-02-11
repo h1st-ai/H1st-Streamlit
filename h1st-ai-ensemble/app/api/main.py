@@ -27,8 +27,8 @@ app = FastAPI()
 default_classifier_ensemble_workflow = DefaultClassifierEnsembleWorkflow()
 
 @app.post('/predict', response_model=List[OutputData])
-def predict_number(input_data: List[InputData]):
-    # Predict number
+def predict_default(input_data: List[InputData]):
+    # Predict default
     input_list = []    
     for data in input_data:
         input_list.append([val for val in data.dict().values()])

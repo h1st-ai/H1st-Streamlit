@@ -169,7 +169,6 @@ class DigitClassifier(h1.MLModel):
         :returns: prediction result as a dictionary
         """
         X = input_data['X']
-        X = input_data['X']
         if X.max() > 1:
             X = tf.cast(X, tf.float32) / 255.        
         prediction = self.base_model.predict(X)
