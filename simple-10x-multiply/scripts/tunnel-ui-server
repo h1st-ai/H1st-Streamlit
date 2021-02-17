@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
 
-lt --host http://dev.h1st.ai --port 8008 --subdomain 10x
+lt --host http://dev.h1st.ai --port 3003 --subdomain 10x
