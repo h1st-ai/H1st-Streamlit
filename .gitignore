@@ -4,3 +4,6 @@ __pycache__/
 
 # Database Files
 *.sqlite3
+
+# misc/other
+.DS_Store
