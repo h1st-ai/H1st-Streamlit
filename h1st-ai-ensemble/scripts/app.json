@@ -1,0 +1,13 @@
+{
+  "apps": [
+    {
+      "name": "h1st-ensemble-api",
+      "script": "uvicorn api.main:app --port=8001",
+      "cwd": "/home/project/h1st-ai-ensemble/app",
+      "env": {
+        "NODE_ENV": "dev"
+      },
+      "watch": true
+    }
+  ]
+}
