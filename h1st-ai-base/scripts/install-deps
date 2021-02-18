@@ -3,3 +3,5 @@
 
 python3 -m pip install --upgrade PIP
 python3 -m pip install --upgrade -r app/requirements.txt
+
+npm -g install localtunnel

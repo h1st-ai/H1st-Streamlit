@@ -4,5 +4,3 @@
 scripts/install-deps
 scripts/bootstrap-ai
 scripts/bootstrap-ui
-
-npm -g install localtunnel
