@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
 
-lt --host http://dev.h1st.ai --port 8008 --subdomain my-ai
+lt --host http://dev.h1st.ai --port 8008 --subdomain ai-layer
