@@ -21,9 +21,8 @@ INTERNAL_IPS = ['127.0.0.1']
 
 ALLOWED_HOSTS = [
     '127.0.0.1', 'localhost',
-    '.h1st.ai', '.dev.h1st.ai',
-    '.ngrok.io',
-    '*'
+    '.h1st.ai',
+    '.ngrok.io'
 ]
 
 
