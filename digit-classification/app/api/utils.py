@@ -1,4 +1,3 @@
-from fastapi.datastructures import UploadFile
 import numpy as np
 import cv2
 
