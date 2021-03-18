@@ -123,7 +123,7 @@ class DigitClassifier(h1.MLModel):
             y_true.append(image_set[1])
         y_true = tf.concat(y_true, axis=0)
         np_array = y_true.numpy()
-        print("Distribution of Label in Train Data")
+        plt.title('Distribution of Label in Train Data')        
         plt.hist(np_array)
         plt.show()
 
@@ -133,7 +133,7 @@ class DigitClassifier(h1.MLModel):
             y_true.append(image_set[1])
         y_true = tf.concat(y_true, axis=0)
         np_array = y_true.numpy()
-        print("Distribution of Label in Test Data")
+        plt.title('Distribution of Label in Test Data')
         plt.hist(np_array)  
         plt.show()
 
