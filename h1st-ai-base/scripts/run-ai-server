@@ -3,4 +3,4 @@
 
 cd app
 
-h1st runserver ../my-h1st-app-config.yml
+h1st runserver ../my-h1st-app-config.yml 8008

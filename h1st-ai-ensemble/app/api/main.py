@@ -6,7 +6,6 @@ sys.path.append("..")
 sys.path.append("../..")
 from typing import List
 
-import cv2
 from fastapi.datastructures import UploadFile
 from fastapi.params import File
 from fastapi import FastAPI, Request, Form
