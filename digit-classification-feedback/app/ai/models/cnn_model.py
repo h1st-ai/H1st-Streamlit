@@ -12,7 +12,7 @@ from tensorflow.keras import layers
 import tensorflow_datasets as tfds
 from numpy import nan as NaN
 
-import app.ai.config
+import digit_classification.app.ai.config
 import h1st.core as h1
 
 

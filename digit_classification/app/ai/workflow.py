@@ -1,5 +1,5 @@
 import h1st.core as h1
-from app.ai.models.cnn_model import DigitClassifier
+from digit_classification.app.ai.models.cnn_model import DigitClassifier
 
 
 class DigitClassificationWorkflow(h1.Graph):
