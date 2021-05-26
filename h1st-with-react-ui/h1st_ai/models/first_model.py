@@ -1,6 +1,6 @@
-import h1st.core as h1
+from h1st.model.model import Model as H1stModel
 
 
-class FirstModel(h1.Model):
+class FirstModel(H1stModel):
     def predict(self, input_data):
         return input_data
