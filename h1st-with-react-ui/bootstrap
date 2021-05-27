@@ -1,8 +1,20 @@
 #!/usr/bin/env bash
 
 
+# install Python dependencies
+python3 -m pip install -r requirements.txt --upgrade --user
+
+
+# migrate app database
 python3 manage.py migrate
 
+# create super user
 DJANGO_SUPERUSER_PASSWORD=password \
     python3 manage.py createsuperuser --no-input \
     --username username --email user@h1st.ai
+
+
+# install React dependencies
+npm install -g yarn
+cd react_ui
+yarn
