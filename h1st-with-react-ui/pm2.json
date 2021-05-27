@@ -2,7 +2,7 @@
   "apps": [
     {
       "name": "H1st AI",
-      "script": "python3 manage.py runserver",
+      "script": "python3 manage.py runserver --port 8008",
       "env": {
         "PORT": "8008"
       }
