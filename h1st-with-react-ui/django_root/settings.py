@@ -30,7 +30,7 @@ ALLOWED_HOSTS = [
 # Application definition
 INSTALLED_APPS = [
     # Django Admin Themes: add to INSTALLED_APPS before django.contrib.admin
-    'jazzmin',
+    # 'jazzmin',
 
     # Django Default/Main Apps
     'django.contrib.admin',
