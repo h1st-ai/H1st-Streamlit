@@ -95,6 +95,8 @@ TEMPLATES = [
 # Database
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 DATABASES = {
+    'default': dict(ENGINE='django.db.backends.sqlite3',
+                    NAME='db.sqlite3')
 }
 
 
