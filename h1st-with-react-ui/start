@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
 
 
+./bootstrap
+
+
 pm2 start pm2.json
