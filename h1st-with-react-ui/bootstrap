@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+
+python3 manage.py migrate
+
+DJANGO_SUPERUSER_PASSWORD=password \
+    python3 manage.py createsuperuser --no-input \
+    --username username --email user@h1st.ai
