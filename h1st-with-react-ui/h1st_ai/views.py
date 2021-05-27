@@ -10,5 +10,5 @@ from .models.first_model import FirstModel
 class FirstModelAPIView(APIView):
     def post(self, request):
         model = FirstModel()
-        result = model.predict(request.data)
+        result = model.predict(request.data.payload)
         return Response(result)

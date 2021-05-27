@@ -11,7 +11,7 @@ const Dashboard = () => {
 
   const handleOnSendData = async () => {
     try {
-      const res = await axios.post(`${backendUrl}`, JSON.parse(content), {
+      const res = await axios.post(`${backendUrl}`, { payload: content }, {
         auth: {
           username: process.env.REACT_APP_AI_USERNAME ?? "",
           password: process.env.REACT_APP_AI_PASSWORD ?? "",
