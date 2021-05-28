@@ -1,6 +1,6 @@
 from django.test import TestCase
 
-from .models import FirstModel
+from h1st_ai.models import FirstModel
 
 
 class FirstModelTestCase(TestCase):
