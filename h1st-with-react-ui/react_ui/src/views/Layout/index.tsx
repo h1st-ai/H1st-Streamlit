@@ -1,32 +1,34 @@
 import * as React from "react";
-import { Col, Layout as AntLayout, Row, Image } from "antd";
 import { Link } from "@reach/router";
-
-const { Header, Content, Footer } = AntLayout;
-
+import styles from "./styles.module.css";
+import Logo from "./logo.svg";
 interface LayoutProps {
   children?: JSX.Element;
+  title?: string;
 }
 
-const Layout = ({ children }: LayoutProps): JSX.Element => {
+const Layout = ({ children, title }: LayoutProps): JSX.Element => {
   return (
-    <AntLayout style={{ minHeight: "100vh" }}>
-      <Header style={{ backgroundColor: "#F7F8FC" }}>
-        <Row justify="space-between" align="middle">
-          <Col>
-            <Link to={"/app"}>
-              <Image
-                src="/logo.svg"
-                style={{ height: 36, width: "auto", marginTop: 12 }}
-                preview={false}
-              />
-            </Link>
-          </Col>
-        </Row>
-      </Header>
-      <Content style={{ padding: 24 }}>{children}</Content>
-      <Footer>@H1st</Footer>
-    </AntLayout>
+    <div className={styles.layoutWrapper}>
+      <div className={styles.header}>
+        <div className={styles.content}>
+          <Link to={"/"} className={styles.logoWrapper}>
+            <img src={Logo} alt="Logo" /> {title}
+          </Link>
+        </div>
+      </div>
+      <div className={styles.contentWrapper}>
+        <div className={styles.content}>{children}</div>
+      </div>
+      <div className={styles.footer}>
+        <div className={styles.content}>
+          Powered by{" "}
+          <a href="https://github.com/h1st-ai" target="_blank" rel="noreferrer">
+            H1st
+          </a>
+        </div>
+      </div>
+    </div>
   );
 };
 

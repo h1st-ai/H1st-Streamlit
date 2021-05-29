@@ -1,53 +1,66 @@
-import { Button, Card, Col, Input, Row } from "antd";
 import axios from "axios";
 import { useState } from "react";
 import { Layout } from "../Layout";
+import CONFIG from "config";
 
-const backendUrl = process.env.REACT_APP_AI_WORKFLOW_URL ?? "http://localhost:8000";
+import styles from "./style.module.css";
+
+const backendUrl =
+  process.env.REACT_APP_AI_WORKFLOW_URL ?? "http://localhost:8000";
 
 const Dashboard = () => {
-  const [content, setContent] = useState("");
-  const [result, setResult] = useState();
+  const appData = { title: "H1st React App" };
+  const [input, setInput] = useState("");
+  const [output, setOutput] = useState("");
 
   const handleOnSendData = async () => {
     try {
-      const res = await axios.post(`${backendUrl}`, { payload: content }, {
-        auth: {
-          username: process.env.REACT_APP_AI_USERNAME ?? "",
-          password: process.env.REACT_APP_AI_PASSWORD ?? "",
-        },
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      setResult(res.data);
-    } catch (error) {}
+      const res = await axios.post(
+        `${backendUrl}`,
+        { payload: input },
+        {
+          auth: {
+            username: process.env.REACT_APP_AI_USERNAME ?? "",
+            password: process.env.REACT_APP_AI_PASSWORD ?? "",
+          },
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      setOutput(res.data);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
-    <Layout>
-      <Row
-        justify="center"
-        align="middle"
-        style={{ width: "100%", height: "100%" }}
-      >
-        <Col xs={22} md={16} lg={10}>
-          <Card title="H1st AI App with React UI">
-            <Row gutter={[24, 24]}>
-              <Col span={24}>
-                <Input.TextArea onChange={(e) => setContent(e.target.value)} />
-              </Col>
-              <Col span={24}>
-                <Row justify="center">
-                  <Button onClick={handleOnSendData}>Send Data</Button>
-                </Row>
-              </Col>
-              <Col span={24}>Result:</Col>
-              <Col span={24}>{JSON.stringify(result)}</Col>
-            </Row>
-          </Card>
-        </Col>
-      </Row>
+    <Layout {...CONFIG}>
+      <div className={styles.gridWrapper}>
+        <div className={styles.input}>
+          <h3>Input</h3>
+          <textarea
+            className={styles.textInput}
+            rows={4}
+            defaultValue=""
+            onChange={(e) => setInput(e.target.value)}
+          ></textarea>
+
+          <button disabled={!input} onClick={handleOnSendData}>
+            Submit
+          </button>
+        </div>
+        <div className={styles.output}>
+          <h3>Output</h3>
+          <textarea
+            className={styles.textInput}
+            rows={4}
+            value={output}
+            disabled={true}
+          ></textarea>
+        </div>
+      </div>
     </Layout>
   );
 };
