@@ -2,7 +2,7 @@
 
 
 # install Python dependencies
-python3 -m pip install -r requirements.txt --upgrade --user
+python3 -m pip install -r requirements.txt --no-cache-dir --upgrade --user
 
 
 # migrate app database
@@ -15,6 +15,6 @@ DJANGO_SUPERUSER_PASSWORD=password \
 
 
 # install React dependencies
-npm install -g yarn
+npm install -g pm2 yarn
 cd react_ui
 yarn

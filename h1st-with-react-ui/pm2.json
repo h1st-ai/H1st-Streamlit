@@ -1,0 +1,20 @@
+{
+  "apps": [
+    {
+      "name": "H1st AI",
+      "script": "python3 manage.py runserver 8008",
+      "env": {
+        "PORT": "8008"
+      }
+    },
+
+    {
+      "name": "React UI",
+      "cwd": "react_ui",
+      "script": "yarn start",
+      "env": {
+        "PORT": "3003"
+      }
+    }
+  ]
+}

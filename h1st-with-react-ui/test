@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+
+python3 manage.py test h1st_ai/tests
