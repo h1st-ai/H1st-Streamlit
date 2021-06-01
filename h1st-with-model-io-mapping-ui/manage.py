@@ -10,6 +10,11 @@ import os
 import sys
 
 
+# TODO
+os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = \
+    os.path.expanduser('~/airy-timing-314804-1fa11fcc2bd3.json')
+
+
 def main():
     """
     Run administrative tasks

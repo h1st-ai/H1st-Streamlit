@@ -1,1 +1,1 @@
-from .first_model import FirstModel
+from .my_model import MyModel
