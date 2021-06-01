@@ -3,6 +3,7 @@ import { Router } from "@reach/router";
 import "antd/dist/antd.less";
 import "./App.css";
 import { Spin } from "antd";
+import DashboardI from './views/Dashboard';
 
 const Dashboard = lazy(() => import("./views/Dashboard"));
 const WaitingComponent = ({
@@ -20,11 +21,15 @@ const WaitingComponent = ({
 
 function App() {
   return (
-    <Suspense fallback={<Spin />}>
+    <>
+    <DashboardI />
+    {/* <Suspense fallback={<Spin />}>
+
       <Router>
         <WaitingComponent Component={Dashboard} path="/" />
       </Router>
-    </Suspense>
+    </Suspense> */}
+    </>
   );
 }
 

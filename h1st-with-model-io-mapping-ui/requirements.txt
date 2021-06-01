@@ -1,1 +1,2 @@
 https://GitHub.com/H1st-AI/H1st/archive/h1flow.zip
+google-cloud-translate==2.0.1

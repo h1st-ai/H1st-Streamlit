@@ -23,7 +23,8 @@ DEBUG = True
 ALLOWED_HOSTS = [
     '127.0.0.1', '0.0.0.0', 'localhost',
     'apps.aitomatic.com',
-    '.ngrok.io'
+    '.ngrok.io',
+    'wb.aitomatic.com'
 ]
 
 
