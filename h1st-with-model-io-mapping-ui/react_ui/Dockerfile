@@ -10,9 +10,5 @@ RUN yarn global add serve
 COPY . ./
 RUN yarn run build
 
-EXPOSE 3003
-
-CMD ["yarn", "start", "3003"]
-
 # production environment
-# CMD ["serve", "-s", "build"]
+CMD ["serve", "-s", "build", "-p", "3003"]
