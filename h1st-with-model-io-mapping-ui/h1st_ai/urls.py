@@ -2,7 +2,7 @@ from django.urls.conf import include, path
 
 from rest_framework.routers import DefaultRouter
 
-from .views import FirstModelAPIView
+from .views import MyModelAPIView
 
 
 ROUTER = DefaultRouter()
@@ -10,5 +10,5 @@ ROUTER = DefaultRouter()
 
 urlpatterns = [
     path('', include(ROUTER.urls)),
-    path('first-model/', FirstModelAPIView.as_view())
+    path('my-model/', MyModelAPIView.as_view())
 ]

@@ -3,12 +3,12 @@ from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from .models import FirstModel
+from .models import MyModel
 
 
 @permission_classes([AllowAny])
-class FirstModelAPIView(APIView):
+class MyModelAPIView(APIView):
     def post(self, request):
-        model = FirstModel()
+        model = MyModel()
         result = model.predict(request.data['payload'])
         return Response(result)
