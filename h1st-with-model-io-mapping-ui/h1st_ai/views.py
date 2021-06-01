@@ -6,9 +6,11 @@ from rest_framework.views import APIView
 from .models import MyModel
 
 
+model = MyModel()
+
+
 @permission_classes([AllowAny])
 class MyModelAPIView(APIView):
     def post(self, request):
-        model = MyModel()
         result = model.predict(request.data['payload'])
         return Response(result)
