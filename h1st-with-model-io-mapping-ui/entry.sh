@@ -1,1 +1,4 @@
-python manage.py runserver 8008
+#!/usr/bin/env bash
+cd /app
+python manage.py migrate 
+python manage.py runserver 0.0.0.0:8008
