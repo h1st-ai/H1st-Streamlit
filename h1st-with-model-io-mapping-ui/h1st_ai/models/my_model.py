@@ -30,4 +30,3 @@ class MyModel(H1stSeq2SeqTransformer):
     # ### customize if necessary ###
     # def predict(self, data):
     #     ...
-
