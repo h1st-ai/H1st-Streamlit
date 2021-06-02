@@ -8,7 +8,7 @@ COPY yarn.lock ./
 RUN yarn add react-scripts@4.0.3 -g --silent
 RUN yarn global add serve
 COPY . ./
-RUN yarn run build
+RUN PUBLIC_URL=${PUBLIC_URL} yarn run build
 
 # production environment
 CMD ["serve", "-s", "build", "-p", "3003"]
