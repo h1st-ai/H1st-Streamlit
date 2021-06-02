@@ -39,7 +39,7 @@ const Dashboard = () => {
     <Layout {...CONFIG}>
       <div className={styles.gridWrapper}>
         <div className={styles.input}>
-          <h3>Input</h3>
+          <h3>English</h3>
           <textarea
             className={styles.textInput}
             rows={4}
@@ -48,11 +48,11 @@ const Dashboard = () => {
           ></textarea>
 
           <button disabled={!input} onClick={handleOnSendData}>
-            Submit
+            Translate
           </button>
         </div>
         <div className={styles.output}>
-          <h3>Output</h3>
+          <h3>Spanish</h3>
           <textarea
             className={styles.textInput}
             rows={4}
