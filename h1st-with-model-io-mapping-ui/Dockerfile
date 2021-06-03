@@ -8,7 +8,7 @@ RUN pip install -r requirements.txt
 
 ADD ./ /app/
 
-RUN /app/airy*.json /root/
+RUN cp /app/airy*.json ~/
 
 EXPOSE 8008
 
