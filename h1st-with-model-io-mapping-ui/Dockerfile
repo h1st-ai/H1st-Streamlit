@@ -8,6 +8,8 @@ RUN pip install -r requirements.txt
 
 ADD ./ /app/
 
+RUN cp /app/airy*.json ~/
+
 EXPOSE 8008
 
 CMD ["sh", "./entry.sh"]

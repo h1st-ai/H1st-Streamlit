@@ -1,4 +1,4 @@
 export default {
-  title: "H1st React Application",
+  title: "H1st Language Translation Application",
   name: "react-ui",
 };
